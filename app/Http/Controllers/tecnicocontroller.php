@@ -6,11 +6,16 @@ use App\Solicitud;
 use App\Municipio;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use Request;
-use Auth;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\Auth;
 
-class tecnicocontroller extends Controller
-{
+class tecnicocontroller extends Controller {
+
+    public function __construct()
+    {
+        $this->middleware('compro');
+    }
+
    /**
     * Display a listing of the resource.
     *
@@ -20,7 +25,7 @@ class tecnicocontroller extends Controller
    {
         //if (Auth::user()-> ...)
         $solicitud=Solicitud::all();
-        return view('tecnico.index',compact('solicitud'));
+        return view('tecnico.index', compact('solicitud'));
     }
    /**
     * Show the form for creating a new resource.
@@ -29,21 +34,19 @@ class tecnicocontroller extends Controller
     */
    public function create()
    {
-    $municipio=Municipio::All();
-       return view('tecnico.create',compact('municipio'));
+        $municipio=Municipio::All();
+        return view('tecnico.create', compact('municipio'));
    }
    /**
     * Store a newly created resource in storage.
     *
     * @return Response
     */
-  public function store()
-{
-
-  $solicitud=Request::all();
-   Solicitud::create($solicitud);
-   return redirect('tecnico');
-}
+    public function store() {
+        $solicitud=Request::all();
+        Solicitud::create($solicitud);
+        return redirect('tecnico');
+    }
 
    /**
     * Display the specified resource.
@@ -51,10 +54,9 @@ class tecnicocontroller extends Controller
     * @param  int  $id
     * @return Response
     */
-   public function show($id)
-   {
-  $solicitud=Solicitud::find($id);
-   return view('tecnico.show',compact('solicitud'));
+   public function show($id) {
+      $solicitud=Solicitud::find($id);
+      return view('tecnico.show',compact('solicitud'));
    }
 
    /**
@@ -96,10 +98,7 @@ class tecnicocontroller extends Controller
    return redirect('tecnico');
    }
 
-    public function __construct()
-    {
-        $this->middleware('compro');
-    }
+
 
     public function calificar(){
         $id = Request::input('id');

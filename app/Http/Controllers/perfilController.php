@@ -1,11 +1,18 @@
-<?php namespace App\Http\Controllers;
+<?php
+
+namespace App\Http\Controllers;
+
 use App\User;
-use App\Http\Requests;
-use App\Http\Controllers\Controller;
-use Request;
+use Illuminate\Support\Facades\Request;
 
 class perfilController extends Controller {
-   /**
+
+    public function __construct()
+    {
+        $this->middleware('compro');
+    }
+
+    /**
     * Display a listing of the resource.
     *
     * @return Response
@@ -24,12 +31,14 @@ class perfilController extends Controller {
    {
       //
    }
-   /**
-    * Store a newly created resource in storage.
-    *
-    * @return Response
-    */
-   public function store()
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param Request $request
+     * @return Response
+     */
+   public function store(Request $request)
    {
       $users=$request->all(); // important!!
       User::create($users);
@@ -53,39 +62,37 @@ class perfilController extends Controller {
     * @param  int  $id
     * @return Response
     */
-public function edit($id)
-{
-   $users=User::find($id);
-   return view('perfil.edit',compact('users'));
-}
+    public function edit($id)
+    {
+       $users=User::find($id);
+       return view('perfil.edit',compact('users'));
+    }
 
-/**
- * Update the specified resource in storage.
- *
- * @param  int  $id
- * @return Response
- */
-public function update($id)
-{
-   //
-   $usersUpdate=Request::all();
-   $users=User::find($id);
-   $users->update($usersUpdate);
-   return redirect('perfil');
-}
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  int  $id
+     * @return Response
+     */
+
+    public function update($id)
+    {
+       //
+       $usersUpdate=Request::all();
+       $users=User::find($id);
+       $users->update($usersUpdate);
+       return redirect('perfil');
+    }
+
    /**
     * Remove the specified resource from storage.
     *
     * @param  int  $id
     * @return Response
     */
- public function destroy($id)
-{
-   User::find($id)->delete();
-   return redirect('perfil');
-}
- public function __construct()
+     public function destroy($id)
     {
-        $this->middleware('compro');
+       User::find($id)->delete();
+       return redirect('perfil');
     }
 }

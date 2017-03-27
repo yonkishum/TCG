@@ -13,7 +13,7 @@ class VistaController extends Controller {
    public function index()
    {
     $users=User::all();
-        return view('vista.index',compact('users'));
+    return view('vista.index', compact('users'));
    }
 }
 
