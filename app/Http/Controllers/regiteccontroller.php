@@ -16,7 +16,7 @@ class regiteccontroller extends Controller
     public function index()
     {   
         $municipio=Municipio::All();
-        return view('registro.regitec',compact('municipio'));
+        return view('registro.regitec', compact('municipio'));
     }
 
     /**
@@ -28,16 +28,5 @@ class regiteccontroller extends Controller
     {
         return view('operador.crear');
 
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        dd($request->all());
     }
 }

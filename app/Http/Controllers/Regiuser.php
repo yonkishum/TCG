@@ -16,7 +16,7 @@ class Regiuser extends Controller
     public function index()
     {   
         $municipio=Municipio::All();
-        return view('regiuser.regiuser',compact('municipio'));
+        return view('regiuser.regiuser', compact('municipio'));
     }
 
     /**
@@ -28,16 +28,5 @@ class Regiuser extends Controller
     {
         return view('operador.crear');
 
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        dd($request->all());
     }
 }
