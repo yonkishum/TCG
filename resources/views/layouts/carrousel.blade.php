@@ -10,7 +10,7 @@
             <img height="450px" id="img-carrousel" src="8.png" alt="Logo">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Tecnicos de Confianza</h1>
+                    <h1 class="titulo">Tecnicos de Confianza</h1>
                     <p><a class="btn btn-lg btn-primary" href="/" role="button">Leer mas</a></p>
                 </div>
             </div>
@@ -19,8 +19,7 @@
             <img height="450px" src="slider2.jpg" alt="Calidad">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Calidad y Servicio</h1>
-
+                    <h1 class="titulo">Calidad y Servicio</h1>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer mas</a></p>
                 </div>
             </div>
@@ -29,7 +28,7 @@
             <img height="450px" src="slider3.jpg" alt="Puerto Cabello">
             <div class="container">
                 <div class="carousel-caption">
-                    <h1>Tecnicos de cualquier especialidad</h1>
+                    <h1 class="titulo">Tecnicos de cualquier especialidad</h1>
                     <p><a class="btn btn-lg btn-primary" href="#" role="button">Leer mas</a></p>
                 </div>
             </div>
