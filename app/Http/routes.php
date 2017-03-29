@@ -110,4 +110,13 @@ Route::post('calificar', "tecnicocontroller@calificar");
 
 Route::resource('vista', "VistaController");
 
+/**
+ * Rutas de Admnistrador
+ * */
 
+Route::group(['prefix' => 'admin'], function () {
+   Route::get('/', [
+       'as' => 'admin.index',
+       'uses' => 'AdminController@index'
+   ]);
+});
